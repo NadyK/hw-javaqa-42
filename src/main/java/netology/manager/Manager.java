@@ -3,6 +3,7 @@ package netology.manager;
 import netology.domain.InfoTicket;
 import netology.repository.Repository;
 
+import java.util.Arrays;
 import java.util.function.Predicate;
 
 public class Manager {
@@ -17,8 +18,10 @@ public class Manager {
     }
 
     public InfoTicket[] searchByDepartureAndArrival(String departure, String arrival) {
+
         return findBy(ticket -> ticket.getDepartureAirport().equalsIgnoreCase(departure)
                 && ticket.getArrivalAirport().equalsIgnoreCase(arrival));
+
     }
 
     private InfoTicket[] findBy(Predicate<InfoTicket> filter) {
@@ -32,7 +35,9 @@ public class Manager {
                 result = tmp;
             }
         }
+        Arrays.sort(result);
         return result;
     }
+
 }
 

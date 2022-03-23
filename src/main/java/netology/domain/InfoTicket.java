@@ -18,7 +18,6 @@ public class InfoTicket implements Comparable<InfoTicket>{
 
     @Override
     public int compareTo(InfoTicket o) {
-       // todo if
-        return this.price - o.price;
+              return this.price - o.price;
     }
 }
